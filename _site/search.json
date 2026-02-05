@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "Day3.html",
+    "href": "Day3.html",
+    "title": "Day 3 Practical",
+    "section": "",
+    "text": "Question 3\nPlot the function \\(f(x) = \\sin(x)\\) for \\(x \\in [-2, 2]\\).\n\nx = runif(1000,-2,2)\n\nx = seq(-2,2,length = 10000)\n\ny = sin(x)\n\nplot(y~x,type = \"l\")"
+  },
+  {
+    "objectID": "Prac_1.html",
+    "href": "Prac_1.html",
+    "title": "Prac 1",
+    "section": "",
+    "text": "Question 1\n\n#Reading in dataset into object \ndf = airquality\n\n#Find all rows where there are missing values \nfindNa = function(df) {\n  \n  ln = nrow(df)\n  \n  vec = c()\n\n  \n    for (x in 1:ln) {\n      if (anyNA(df[x,])) {\n      vec = c(vec,x)}\n    }\n  \n  return(vec)\n  \n}\n\n\n\nQuestion 2\n\n#Mean,sd,min,max of temprature \n\ndf = airquality\n\nmean(df$Temp)\n\n[1] 77.88235\n\nsd(df$Temp)\n\n[1] 9.46527\n\nmin(df$Temp)\n\n[1] 56\n\nmax(df$Temp)\n\n[1] 97\n\n#Mean,sd,min,max of ozone level \nmean(df$Ozone,na.rm = TRUE)\n\n[1] 42.12931\n\nsd(df$Ozone,na.rm = TRUE)\n\n[1] 32.98788\n\nmin(df$Ozone,na.rm = TRUE)\n\n[1] 1\n\nmax(df$Ozone,na.rm = TRUE)\n\n[1] 168\n\n\n\n\nQuestion 3\n\n#Linear Regression \ndata = cars\n\n\n#Assigning x and y values\nx = data$speed \ny = data$dist\n\n\n#Making x a design vector \nx = cbind(1, x)\n\n#Computing beta hat \nbeta = solve(t(x)%*%x)%*%t(x)%*%y\nprint(beta)\n\n        [,1]\n  -17.579095\nx   3.932409\n\n\n\nlm(data$dist~data$speed)\n\n\nCall:\nlm(formula = data$dist ~ data$speed)\n\nCoefficients:\n(Intercept)   data$speed  \n    -17.579        3.932  \n\n\nValidated that both betas are the same as finding them using the lm function."
+  },
+  {
     "objectID": "Assignment 1.html",
     "href": "Assignment 1.html",
     "title": "Assignment 1",
@@ -12,33 +26,5 @@
     "title": "Assignment 1",
     "section": "",
     "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org.\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Index file",
-    "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
-  },
-  {
-    "objectID": "index.html#quarto",
-    "href": "index.html#quarto",
-    "title": "Index file",
-    "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
-  },
-  {
-    "objectID": "index.html#running-code",
-    "href": "index.html#running-code",
-    "title": "Index file",
-    "section": "Running Code",
-    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
-  },
-  {
-    "objectID": "Prac_1.html",
-    "href": "Prac_1.html",
-    "title": "Prac 1",
-    "section": "",
-    "text": "#Reading in dataset into object \ndf = airquality\n\n#Find all rows where there are missing values \nfindNa = function(df) {\n  \n  ln = nrow(df)\n  \n  vec = c()\n\n  \n    for (x in 1:ln) {\n      if (anyNA(df[x,])) {\n      vec = c(vec,x)}\n    }\n  \n  return(vec)\n  \n}"
   }
 ]
