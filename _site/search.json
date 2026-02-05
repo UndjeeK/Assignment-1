@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "Assignment 1.html",
+    "href": "Assignment 1.html",
+    "title": "Assignment 1",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "Assignment 1.html#quarto",
+    "href": "Assignment 1.html#quarto",
+    "title": "Assignment 1",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Index file",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "index.html#quarto",
+    "href": "index.html#quarto",
+    "title": "Index file",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "index.html#running-code",
+    "href": "index.html#running-code",
+    "title": "Index file",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "Prac_1.html",
+    "href": "Prac_1.html",
+    "title": "Prac 1",
+    "section": "",
+    "text": "#Reading in dataset into object \ndf = airquality\n\n#Find all rows where there are missing values \nfindNa = function(df) {\n  \n  ln = nrow(df)\n  \n  vec = c()\n\n  \n    for (x in 1:ln) {\n      if (anyNA(df[x,])) {\n      vec = c(vec,x)}\n    }\n  \n  return(vec)\n  \n}"
+  }
+]
