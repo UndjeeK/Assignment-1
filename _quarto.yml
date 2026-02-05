@@ -9,5 +9,5 @@ website:
         text: Index
       - href: Prac_1.qmd
         text: Practical 1
-      - href: Assignment 1.qmd
-        text: Terrain colors
+      - href: Day3.qmd
+        text: Day 3 Practical
