@@ -1,5 +1,13 @@
 project:
-  title: "Assignment 1"
+  type: website
 
-
-
+website:
+  title: "A website on color scales"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: Assignment1.qmd
+        text: Viridis colors
+      - href: Assignment1.qmd
+        text: Terrain colors
