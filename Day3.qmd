@@ -1,0 +1,19 @@
+---
+title: "Day 3 Practical"
+format: html
+editor: visual
+---
+
+### Question 3
+
+Plot the function $f(x) = \sin(x)$ for $x \in [-2, 2]$.
+
+```{r}
+x = runif(1000,-2,2)
+
+x = seq(-2,2,length = 10000)
+
+y = sin(x)
+
+plot(y~x,type = "l")
+```
