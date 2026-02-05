@@ -53,3 +53,35 @@ max(df$Ozone,na.rm = TRUE)
 
 
 ```
+
+### Question 3
+
+```{r}
+#Linear Regression 
+data = cars
+
+
+#Assigning x and y values
+x = data$speed 
+y = data$dist
+
+
+#Making x a design vector 
+x = cbind(1, x)
+
+#Computing beta hat 
+beta = solve(t(x)%*%x)%*%t(x)%*%y
+print(beta)
+
+
+
+
+
+```
+
+```{r}
+lm(data$dist~data$speed)
+
+```
+
+Validated that both betas are the same as finding them using the lm function.
