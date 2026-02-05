@@ -4,6 +4,8 @@ format: html
 editor: visual
 ---
 
+### Question 1
+
 ```{r}
 #Reading in dataset into object 
 df = airquality
@@ -26,6 +28,28 @@ findNa = function(df) {
 }
 
 
+
+
+```
+
+### Question 2
+
+```{r}
+
+#Mean,sd,min,max of temprature 
+
+df = airquality
+
+mean(df$Temp)
+sd(df$Temp)
+min(df$Temp)
+max(df$Temp)
+
+#Mean,sd,min,max of ozone level 
+mean(df$Ozone,na.rm = TRUE)
+sd(df$Ozone,na.rm = TRUE)
+min(df$Ozone,na.rm = TRUE)
+max(df$Ozone,na.rm = TRUE)
 
 
 ```
