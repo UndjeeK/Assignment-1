@@ -37,7 +37,6 @@ findNa = function(df) {
 ```{r}
 
 #Mean,sd,min,max of temprature 
-
 df = airquality
 
 mean(df$Temp)
@@ -80,6 +79,7 @@ print(beta)
 ```
 
 ```{r}
+#Fitting regression model to validate 
 lm(data$dist~data$speed)
 
 ```
