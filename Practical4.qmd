@@ -1,0 +1,17 @@
+---
+title: "Practical 4"
+format: html
+editor: visual
+---
+
+```{r}
+#Loading tidyverse 
+library(tidyverse)
+
+#Loading dplyr
+library(dplyr)
+
+#Loading nyc flights
+install.packages("nycflights13")
+library(nycflights13)
+```
