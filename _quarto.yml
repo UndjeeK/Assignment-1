@@ -11,3 +11,5 @@ website:
         text: Practical 1
       - href: Day3.qmd
         text: Day 3 Practical
+      - href: Practical4.qmd
+        text: Day 3 Practical
