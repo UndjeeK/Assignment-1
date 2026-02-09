@@ -15,3 +15,35 @@ library(dplyr)
 install.packages("nycflights13")
 library(nycflights13)
 ```
+
+### Question 1
+
+Displaying flights data set
+
+```{r}
+flights |> glimpse()
+```
+
+### Question 2
+
+```{r}
+flights
+flights1x = flights |> filter(month == 1) %>% group_by(carrier) |> summarise(mean_dist= mean(distance),sd_dist = sd(distance)) |> arrange(mean_dist,sd_dist)
+flights1x
+```
+
+### Question 3
+
+```{r}
+flightYV = flights |> filter(carrier == "YV") |> filter(month == 1) |> distinct(distance)
+flightYV
+```
+
+Standard deviation for YV is 0 because all the distances are equal to 229 as shown in the code below
+
+```{r}
+flightOO = flights |> filter(carrier == "OO") |> filter(month == 1)
+flightOO
+```
+
+Standard deviation for OO is NA because there is only one observation where carrier is "OO" and the month = 1.
