@@ -7,6 +7,7 @@ editor: visual
 ### Question 1
 
 ```{r}
+#| message: false
 #Reading in dataset into object 
 df = airquality
 
@@ -35,6 +36,8 @@ findNa = function(df) {
 ### Question 2
 
 ```{r}
+#| message: false
+#| warning: false
 
 #Mean,sd,min,max of temprature 
 df = airquality
@@ -56,6 +59,7 @@ max(df$Ozone,na.rm = TRUE)
 ### Question 3
 
 ```{r}
+#| warning: false
 #Linear Regression 
 data = cars
 
@@ -79,6 +83,7 @@ print(beta)
 ```
 
 ```{r}
+#| warning: false
 #Fitting regression model to validate 
 lm(data$dist~data$speed)
 
