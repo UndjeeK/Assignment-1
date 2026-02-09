@@ -5,6 +5,11 @@ editor: visual
 ---
 
 ```{r}
+
+if (!require("tidyverse")) {
+  options(repos = c(CRAN = "https://cloud.r-project.org/"))
+  install.packages("tidyverse")
+}
 #Loading tidyverse 
 library(tidyverse)
 
@@ -12,7 +17,10 @@ library(tidyverse)
 library(dplyr)
 
 #Loading nyc flights
-install.packages("nycflights13")
+if (!require("nycflights13")) {
+  options(repos = c(CRAN = "https://cloud.r-project.org/"))
+  install.packages("nycflights13")
+}
 library(nycflights13)
 ```
 
@@ -39,7 +47,7 @@ flightYV = flights |> filter(carrier == "YV") |> filter(month == 1) |> distinct(
 flightYV
 ```
 
-Standard deviation for YV is 0 because all the distances are equal to 229 as shown in the code below
+Standard deviation for YV is 0 because all the distances are equal to 229 as shown in the code below.
 
 ```{r}
 flightOO = flights |> filter(carrier == "OO") |> filter(month == 1)
@@ -47,3 +55,19 @@ flightOO
 ```
 
 Standard deviation for OO is NA because there is only one observation where carrier is "OO" and the month = 1.
+
+### Question 4
+
+```{r}
+tibble1 = flights |> group_by(carrier,month) |> summarise(meanDelay =mean(dep_delay,na.rm=T))
+tibble1
+```
+
+### Question 5
+
+```{r}
+tibble2 = flights |> group_by(carrier,month) |> filter(dep_delay > 0) |> filter(arr_delay <= 0)
+tibble2
+proportion = nrow(tibble2)/nrow(flights) *100
+proportion
+```
