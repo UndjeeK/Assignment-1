@@ -9,37 +9,62 @@ editor: visual
 Plot the function $f(x) = \sin(x)$ for $x \in [-2, 2]$.
 
 ```{r}
-x = runif(1000,-2,2)
-
+#Generating x values
 x = seq(-2,2,length = 10000)
 
+#Generating y values
 y = sin(x)
 
-plot(y~x,type = "l")
+plot(y~x,type = "l",ylab = "sin(x)")
 ```
 
 ### Question 5
 
 ```{r}
+#| message: false
+#| warning: false
 
-install.packages("car")
+#Downloading all the necessary packages 
+if (!require("car")) {
+  options(repos = c(CRAN = "https://cloud.r-project.org/"))
+  install.packages("car")
+}
 library(car)
 
-#Values from t-distribution 
-tvals = rt(1000, 1)
 
-#Sorting sample dataset 
-tvalsSorted = sort(tvals)
+#t-values
+tvals = rt(1000,1)
+
+#Normal values
+nvals = rnorm(1000)
 
 #Quantiles from normal distribution 
-qsTheory = quantile(rnorm(1000),probs = seq(0.01,0.99,0.01),names = F)
+qsTheory = quantile(nvals,probs = seq(0.01,0.99,0.01),names = F)
+
+#Bootstrapping to generate 1000 samples of 1000 values from normal distribution 
+B = 1000
+quantsNorm = replicate(B, {
+  nvals2 = rnorm(1000) #Generate values 
+  qsTheory = quantile(nvals2,probs = seq(0.01,0.99,0.01),names = F)#Compute quantiles
+})
+
+lowerQuantile <- apply(quantsNorm,1, quantile, probs = 0.975) #Lower quantile 
+
+medianNorm <- apply(quantsNorm,1,quantile, probs = 0.50) #get the median aswell
+
+upperQuantile <- apply(quantsNorm,1, quantile, probs = 0.025) #Upper quantile
 
 #Quantiles from sample distribution 
-qsSample = quantile(rt(1000,1),probs = seq(0.01,0.99,0.01),names = F)
+qsSample = quantile(tvals, probs = seq(0.01,0.99,0.01),names = F)
 
-plot(qsSample~qsTheory)
+#Plotting sample vs theoretical 
+plot(qsSample~qsTheory, pch = 20, cex = 0.5, ylim = c(-5,5))
+abline(0,1,col= "red", lwd=1)
+lines(medianNorm, lowerQuantile, col = "blue", lty = 2)
+lines(medianNorm, upperQuantile, col = "blue", lty = 2)
 
 
+#Validated against this plot
 qqPlot(tvals, envelope = 0.95, ylim = c(-5, 5))
 
 ```
