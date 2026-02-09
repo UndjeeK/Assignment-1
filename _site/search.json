@@ -14,6 +14,13 @@
     "text": "Question 1\n\n#Reading in dataset into object \ndf = airquality\n\n#Find all rows where there are missing values \nfindNa = function(df) {\n  \n  ln = nrow(df)\n  \n  vec = c()\n\n  \n    for (x in 1:ln) {\n      if (anyNA(df[x,])) {\n      vec = c(vec,x)}\n    }\n  \n  return(vec)\n  \n}\n\n\n\nQuestion 2\n\n#Mean,sd,min,max of temprature \n\ndf = airquality\n\nmean(df$Temp)\n\n[1] 77.88235\n\nsd(df$Temp)\n\n[1] 9.46527\n\nmin(df$Temp)\n\n[1] 56\n\nmax(df$Temp)\n\n[1] 97\n\n#Mean,sd,min,max of ozone level \nmean(df$Ozone,na.rm = TRUE)\n\n[1] 42.12931\n\nsd(df$Ozone,na.rm = TRUE)\n\n[1] 32.98788\n\nmin(df$Ozone,na.rm = TRUE)\n\n[1] 1\n\nmax(df$Ozone,na.rm = TRUE)\n\n[1] 168\n\n\n\n\nQuestion 3\n\n#Linear Regression \ndata = cars\n\n\n#Assigning x and y values\nx = data$speed \ny = data$dist\n\n\n#Making x a design vector \nx = cbind(1, x)\n\n#Computing beta hat \nbeta = solve(t(x)%*%x)%*%t(x)%*%y\nprint(beta)\n\n        [,1]\n  -17.579095\nx   3.932409\n\n\n\nlm(data$dist~data$speed)\n\n\nCall:\nlm(formula = data$dist ~ data$speed)\n\nCoefficients:\n(Intercept)   data$speed  \n    -17.579        3.932  \n\n\nValidated that both betas are the same as finding them using the lm function."
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistical Computing Assignment 1",
+    "section": "",
+    "text": "Author: Undjee Kangueehi"
+  },
+  {
     "objectID": "Assignment 1.html",
     "href": "Assignment 1.html",
     "title": "Assignment 1",

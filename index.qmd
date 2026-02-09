@@ -4,4 +4,4 @@ format: html
 editor: visual
 ---
 
-### Author: Undjee Kangueehi 
+### Author: Undjee Kangueehi
